@@ -14,7 +14,7 @@ fn main() {
 
 fn get_packet_index(signs: Vec<char>, packet_length: usize) -> usize {
     let mut index: usize = 0;
-    for i in 0..signs.len() - 3 {
+    for i in 0..signs.len() - packet_length -1 {
         let packet_idx = i + packet_length;
         let slice_start = &signs[i..packet_idx].into_iter().unique().collect::<Vec<&char>>();
         if slice_start.len() >= packet_length {
